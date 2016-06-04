@@ -29,8 +29,8 @@ public class DemoApplication implements CommandLineRunner {
         }
 
     static enum Events {
-        INSERTTOKEN,
-        PASSTHRU
+        InsertToken,
+        PassThru
         }
 
     @Autowired
@@ -41,8 +41,8 @@ public class DemoApplication implements CommandLineRunner {
         StateMachineListener listener = new StateMachineListener();
         stateMachine.addStateListener(listener);
         stateMachine.start();
-        stateMachine.sendEvent(Events.INSERTTOKEN);
-        stateMachine.sendEvent(Events.PASSTHRU);
+        stateMachine.sendEvent(Events.InsertToken);
+        stateMachine.sendEvent(Events.PassThru);
         listener.print();
         }
 
@@ -66,12 +66,12 @@ public class DemoApplication implements CommandLineRunner {
                     .withExternal()
                         .source(States.LOCKED)
                         .target(States.UNLOCKED)
-                        .event(Events.INSERTTOKEN)
+                        .event(Events.InsertToken)
                         .and()
                     .withExternal()
                         .source(States.UNLOCKED)
                         .target(States.LOCKED)
-                        .event(Events.PASSTHRU);
+                        .event(Events.PassThru);
             }
         }
 
