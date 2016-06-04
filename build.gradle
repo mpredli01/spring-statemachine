@@ -1,0 +1,26 @@
+task init() {
+	println()
+	println "Spring Statemachine Demo Application"
+	println new Date()
+	println()
+	}
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+	mavenCentral()
+	}
+
+dependencies {
+	compile 'org.springframework.statemachine:spring-statemachine-core:1.1.0.RELEASE'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '1.3.5.RELEASE'
+	}
+
+
+mainClassName = 'org.redlich.statemachine.DemoApplication'
+
+jar {
+	baseName = 'statemachine-simple'
+	version = '1.0.0'
+	}
